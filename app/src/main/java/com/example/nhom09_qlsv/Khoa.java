@@ -4,11 +4,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Khoa {
-    public String getMaso() {
+
+
+    public Khoa(int maso, String tenkhoa) {
+        this.maso = maso;
+        this.tenkhoa = tenkhoa;
+    }
+
+    public Khoa(){
+
+    }
+
+    private int maso;
+    private String tenkhoa;
+
+    public int getMaso() {
         return maso;
     }
 
-    public void setMaso(String maso) {
+    public void setMaso(int maso) {
         this.maso = maso;
     }
 
@@ -20,8 +34,7 @@ public class Khoa {
         this.tenkhoa = tenkhoa;
     }
 
-    private String maso;
-    private String tenkhoa;
+
 
     public static List<Khoa> getListKhoa(){
         List<Khoa> lsKhoa = new ArrayList<>();
