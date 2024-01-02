@@ -35,7 +35,7 @@ public class Khoa_Fragment extends Fragment {
         return view;
 
         floatingActionButton=view.findViewById(R.id.floatingActionButton);
-        CustomeAlertDialog customeAlertDialog= new CustomeAlertDialog(this);
+        CustomeAlertDialog customeAlertDialog= new CustomeAlertDialog(getActivity());
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,13 +46,13 @@ public class Khoa_Fragment extends Fragment {
         });
         recyclerView=view.findViewById(R.id.rcvkhoa);
         //hàm lấy danh sách product
-        KhoaDAO productDAO = new KhoaDAO(this);
+        KhoaDAO productDAO = new KhoaDAO(getActivity());
         List<Khoa> khoaList= productDAO.GetAll();
         //đổ dữ liệu lên productAdapter
         KhoaAdapter productAdapter = new KhoaAdapter(khoaList);
         //gán dữ liệu vào RecyclerView
         recyclerView.setAdapter(productAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
 
 
