@@ -19,7 +19,7 @@ import java.util.List;
 
 public class Khoa_Fragment extends Fragment {
 
-    FloatingActionButton floatingActionButton;
+    FloatingActionButton floatingActionButton1;
 
     RecyclerView recyclerView;
 
@@ -32,47 +32,30 @@ public class Khoa_Fragment extends Fragment {
     {
         super.onCreateView(inflater,container,savedInstanceState);
         View view= inflater.inflate(R.layout.fragment_khoa,container,false);
-        return view;
 
-        floatingActionButton=view.findViewById(R.id.floatingActionButton);
-        CustomeAlertDialog customeAlertDialog= new CustomeAlertDialog(this);
-
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+        floatingActionButton1=view.findViewById(R.id.floatingActionButton);
+        CustomeAlertDialog customeAlertDialog= new CustomeAlertDialog(getActivity());
+        floatingActionButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 customeAlertDialog.show();
             }
         });
         recyclerView=view.findViewById(R.id.rcvkhoa);
         //hàm lấy danh sách product
-        KhoaDAO productDAO = new KhoaDAO(this);
+        KhoaDAO productDAO = new KhoaDAO(getActivity());
         List<Khoa> khoaList= productDAO.GetAll();
         //đổ dữ liệu lên productAdapter
         KhoaAdapter productAdapter = new KhoaAdapter(khoaList);
         //gán dữ liệu vào RecyclerView
         recyclerView.setAdapter(productAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-
-
-
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        return view;
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState){
-        super.onCreate(savedInstanceState);
 
-    }
 
-    //Ham swipe xoa khoa
 
-    public void addScreen(View view)
-    {
-        //        Intent intent = new Intent(this, addKhoa.class);
-        //        getActivity().startActivity(intent);
-
-    }
 
 
 
