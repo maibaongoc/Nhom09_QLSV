@@ -19,7 +19,7 @@ import java.util.List;
 
 public class Khoa_Fragment extends Fragment {
 
-    FloatingActionButton floatingActionButton1;
+    FloatingActionButton floatingActionButton;
 
     RecyclerView recyclerView;
 
@@ -32,12 +32,15 @@ public class Khoa_Fragment extends Fragment {
     {
         super.onCreateView(inflater,container,savedInstanceState);
         View view= inflater.inflate(R.layout.fragment_khoa,container,false);
+        return view;
 
-        floatingActionButton1=view.findViewById(R.id.floatingActionButton);
+        floatingActionButton=view.findViewById(R.id.floatingActionButton);
         CustomeAlertDialog customeAlertDialog= new CustomeAlertDialog(getActivity());
-        floatingActionButton1.setOnClickListener(new View.OnClickListener() {
+
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 customeAlertDialog.show();
             }
         });
@@ -50,12 +53,26 @@ public class Khoa_Fragment extends Fragment {
         //gán dữ liệu vào RecyclerView
         recyclerView.setAdapter(productAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        return view;
+
+
+
+
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
 
+    }
 
+    //Ham swipe xoa khoa
 
+    public void addScreen(View view)
+    {
+        //        Intent intent = new Intent(this, addKhoa.class);
+        //        getActivity().startActivity(intent);
+
+    }
 
 
 
